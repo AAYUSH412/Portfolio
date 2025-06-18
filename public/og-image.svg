@@ -1,0 +1,47 @@
+<!-- This is a placeholder for og-image.jpg -->
+<!-- You should replace this with an actual 1200x630 image showcasing your portfolio -->
+<!-- For now, I'll create an SVG placeholder that you can replace later -->
+
+<!-- 
+Recommended OG Image Content:
+- Your photo/avatar
+- Name: "Aayush Vaghela" 
+- Title: "Expert Full Stack Developer"
+- Key tech stack icons: React, Node.js, MongoDB, AWS
+- Your website URL
+- Professional background design
+-->
+
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grad1)"/>
+  
+  <!-- Main Content -->
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="white">Aayush Vaghela</text>
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="36" text-anchor="middle" fill="#f0f0f0">Expert Full Stack Developer</text>
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" fill="#e0e0e0">MERN Stack • React • Node.js • AWS • Docker</text>
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#d0d0d0">10+ Modern Web Applications Delivered</text>
+  <text x="600" y="500" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#c0c0c0">aayush-vaghela.vercel.app</text>
+  
+  <!-- Tech Icons (simplified) -->
+  <circle cx="300" cy="550" r="20" fill="#61dafb"/>
+  <text x="300" y="580" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">React</text>
+  
+  <circle cx="450" cy="550" r="20" fill="#68a063"/>
+  <text x="450" y="580" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">Node.js</text>
+  
+  <circle cx="600" cy="550" r="20" fill="#4db33d"/>
+  <text x="600" y="580" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">MongoDB</text>
+  
+  <circle cx="750" cy="550" r="20" fill="#ff9900"/>
+  <text x="750" y="580" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">AWS</text>
+  
+  <circle cx="900" cy="550" r="20" fill="#0db7ed"/>
+  <text x="900" y="580" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">Docker</text>
+</svg>

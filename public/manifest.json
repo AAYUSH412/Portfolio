@@ -1,0 +1,27 @@
+{
+  "name": "Aayush Vaghela Portfolio",
+  "short_name": "Aayush Portfolio",
+  "description": "Expert Full Stack Developer specializing in MERN stack applications",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["developer", "portfolio", "technology"],
+  "lang": "en",
+  "dir": "ltr"
+}
