@@ -109,12 +109,7 @@ const Header = () => {
             AV
           </AvatarFallback>
         </Avatar>
-        <Badge 
-          variant="secondary" 
-          className="absolute -bottom-1 sm:-bottom-2 left-1/2 transform -translate-x-1/2 bg-green-500 dark:bg-green-600 text-white shadow-lg text-xs sm:text-sm px-2 py-1"
-        >
-          Available for work
-        </Badge>
+        
       </motion.div>
 
       {/* Hero Content */}

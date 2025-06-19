@@ -5,7 +5,6 @@ import { AuroraBackground } from "./components/ui/aurora-background.tsx";
 import Navbar from "./components/Navbar.jsx";
 import Header from "./components/Header.jsx";
 import SEO from './components/SEO.jsx';
-import { Analytics, GoogleAnalytics } from './components/Analytics.jsx';
 
 // Lazy load non-critical components
 const Aboutus = dynamic(() => import("./components/Aboutus.jsx"), {
@@ -32,8 +31,7 @@ export default function Page() {
   return (
     <>
       <SEO />
-      <GoogleAnalytics />
-      <Analytics />
+      
       <AuroraBackground>
         <Navbar />
         <Header />
