@@ -17,7 +17,7 @@ export const AuroraBackground = ({
     <main>
       <div
         className={cn(
-          "relative flex flex-col h-screen items-center justify-center bg-slate-50 dark:bg-blue-900 text-sky-950 transition-bg",
+          "relative flex flex-col min-h-screen items-center justify-center bg-slate-50 dark:bg-blue-900 text-sky-950 dark:text-slate-100 transition-all duration-300 overflow-x-hidden",
           className
         )}
         {...props}
@@ -39,7 +39,8 @@ export const AuroraBackground = ({
             after:[background-size:200%,_100%] 
             after:animate-aurora after:[background-attachment:fixed] after:mix-blend-difference
             pointer-events-none
-            absolute -inset-[10px] opacity-50 will-change-transform`,
+            absolute -inset-[10px] opacity-50 will-change-transform
+            max-w-full overflow-hidden`,
               showRadialGradient &&
                 `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
             )}

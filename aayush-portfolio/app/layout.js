@@ -1,4 +1,5 @@
 import { Inter, Poppins, Playfair_Display } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 const inter = Inter({
@@ -304,9 +305,17 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${inter.variable} ${poppins.variable} ${playfair.variable} font-sans antialiased leading-8 overflow-x-hidden`}
+        className={`${inter.variable} ${poppins.variable} ${playfair.variable} font-sans antialiased leading-8 overflow-x-hidden transition-colors duration-300`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem={true}
+          disableTransitionOnChange={false}
+          storageKey="aayush-portfolio-theme"
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

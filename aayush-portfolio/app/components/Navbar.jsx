@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 import { assets } from '../../assets/assets';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
@@ -18,12 +19,19 @@ import { ScrollArea } from "./ui/scroll-area";
 import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";
 import { Menu, X, Sun, Moon, Home, User, Briefcase, FolderOpen, Mail, Download } from 'lucide-react';
+import ThemeToggle from './ThemeToggle.jsx';
 
 const Navbar = () => {
     const [isScroll, setIsScroll] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
-    const [theme, setTheme] = useState('light');
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    // Ensure component is mounted before rendering theme-dependent content
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const menuItems = [
         { name: 'Home', href: '#home', icon: Home },
@@ -43,7 +51,6 @@ const Navbar = () => {
 
     const toggleTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
-        document.documentElement.classList.toggle('dark');
     };
 
     // Handle scroll and active section
@@ -115,9 +122,9 @@ const Navbar = () => {
             animate="visible"
             variants={navbarVariants}
             className={`
-                fixed top-0 left-0 right-0 z-50 px-5 lg:px-8 xl:px-[8%] py-4
+                fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 md:px-5 lg:px-8 xl:px-[8%] py-2 sm:py-3 md:py-4
                 transition-all duration-300 backdrop-blur-md
-                ${isScroll ? "bg-white/90 dark:bg-black/90 shadow-lg border-b border-border" : "bg-transparent"}
+                ${isScroll ? "bg-white/95 dark:bg-gray-900/95 shadow-lg border-b border-gray-200/50 dark:border-gray-700/50" : "bg-transparent"}
             `}
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -128,18 +135,18 @@ const Navbar = () => {
                     className="relative z-50"
                 >
                     <Image
-                        src={assets.logo || "/placeholder.svg"}
+                        src={assets.logo}
                         alt="logo"
                         width={144}
                         height={40}
                         priority
-                        className="w-36 rounded-2xl border border-border shadow-sm hover:shadow-md transition-shadow"
+                        className="w-24 h-8 sm:w-28 sm:h-10 md:w-32 md:h-12 lg:w-36 lg:h-14 rounded-xl sm:rounded-2xl border border-gray-200/80 dark:border-gray-700/80 shadow-sm hover:shadow-md transition-all duration-300"
                     />
                 </motion.a>
 
                 {/* Desktop Navigation */}
-                <NavigationMenu className="hidden md:flex">
-                    <NavigationMenuList className="gap-6">
+                <NavigationMenu className="hidden lg:flex">
+                    <NavigationMenuList className="gap-4 xl:gap-6">
                         {menuItems.map((item, index) => (
                             <NavigationMenuItem key={item.name}>
                                 <NavigationMenuLink asChild>
@@ -150,7 +157,7 @@ const Navbar = () => {
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         className={`
-                                            relative py-2 px-4 rounded-md transition-all duration-200
+                                            relative py-2 px-3 xl:px-4 rounded-md transition-all duration-200 text-sm xl:text-base
                                             ${activeSection === item.href.slice(1) 
                                                 ? "bg-primary text-primary-foreground shadow-sm" 
                                                 : "hover:bg-accent hover:text-accent-foreground"
@@ -166,55 +173,39 @@ const Navbar = () => {
                 </NavigationMenu>
 
                 {/* Contact Button & Theme Toggle & Mobile Menu Button */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 sm:gap-2">
                     {/* Theme Toggle */}
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => document.documentElement.classList.toggle('dark')}
-                        className="rounded-full hidden sm:flex"
-                    >
-                        <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                        <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                        <span className="sr-only">Toggle theme</span>
-                    </Button>
+                    <div className="hidden sm:flex">
+                        <ThemeToggle />
+                    </div>
 
                     <Button 
                         asChild
                         variant="outline"
-                        className="hidden lg:flex"
+                        size="sm"
+                        className="hidden xl:flex"
                     >
                         <motion.a
                             href="#contact"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center gap-2"
+                            className="flex items-center gap-2 text-sm"
                         >
                             Contact
                             <Image
-                                src={assets.arrow_icon || "/placeholder.svg"}
+                                src={assets.arrow_icon}
                                 alt="contact"
                                 width={16}
                                 height={16}
-                                className="w-4"
+                                className="w-3 h-3"
                             />
                         </motion.a>
                     </Button>
 
-                    {/* Theme Toggle Button */}
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={toggleTheme}
-                        className="rounded-full md:hidden"
-                        aria-label="Toggle theme"
-                    >
-                        {theme === 'light' ? (
-                            <Moon className="h-5 w-5" />
-                        ) : (
-                            <Sun className="h-5 w-5" />
-                        )}
-                    </Button>
+                    {/* Theme Toggle Button for Mobile */}
+                    <div className="sm:hidden">
+                        <ThemeToggle />
+                    </div>
 
                     {/* Mobile Menu */}
                     <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -222,19 +213,19 @@ const Navbar = () => {
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="md:hidden relative z-50"
+                                className="lg:hidden relative z-50 h-8 w-8 sm:h-10 sm:w-10"
                                 aria-label="Toggle menu"
                             >
-                                <Menu className="h-5 w-5" />
+                                <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                        <SheetContent side="right" className="w-[280px] sm:w-[300px] md:w-[400px] max-w-[85vw]">
                             <SheetHeader>
-                                <SheetTitle>Navigation</SheetTitle>
+                                <SheetTitle className="text-left">Navigation</SheetTitle>
                                 <Separator />
                             </SheetHeader>
-                            <ScrollArea className="h-full py-6">
-                                <nav className="flex flex-col gap-2">
+                            <ScrollArea className="h-full py-4 sm:py-6">
+                                <nav className="flex flex-col gap-1 sm:gap-2">
                                     {menuItems.map((item, index) => {
                                         const IconComponent = item.icon;
                                         return (
@@ -247,31 +238,31 @@ const Navbar = () => {
                                                 initial="hidden"
                                                 animate="visible"
                                                 className={`
-                                                    flex items-center gap-3 py-3 px-4 rounded-lg transition-all duration-200
+                                                    flex items-center gap-3 py-3 px-4 rounded-lg transition-all duration-200 text-sm sm:text-base
                                                     ${activeSection === item.href.slice(1) 
                                                         ? "bg-primary text-primary-foreground" 
                                                         : "hover:bg-accent hover:text-accent-foreground"
                                                     }
                                                 `}
                                             >
-                                                <IconComponent className="h-4 w-4" />
-                                                {item.name}
+                                                <IconComponent className="h-4 w-4 flex-shrink-0" />
+                                                <span className="flex-1">{item.name}</span>
                                                 {activeSection === item.href.slice(1) && (
-                                                    <Badge variant="secondary" className="ml-auto">
+                                                    <Badge variant="secondary" className="text-xs">
                                                         Active
                                                     </Badge>
                                                 )}
                                             </motion.a>
                                         );
                                     })}
-                                    <Separator className="my-4" />
-                                    <Button asChild className="w-full">
+                                    <Separator className="my-3 sm:my-4" />
+                                    <Button asChild className="w-full text-sm">
                                         <a href="#contact" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2">
                                             <Mail className="h-4 w-4" />
                                             Contact Me
                                         </a>
                                     </Button>
-                                    <Button asChild variant="outline" className="w-full mt-2">
+                                    <Button asChild variant="outline" className="w-full mt-2 text-sm">
                                         <a href="/Aayush_Vaghela.pdf" download className="flex items-center gap-2">
                                             <Download className="h-4 w-4" />
                                             Download Resume

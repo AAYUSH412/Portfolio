@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Loading() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -14,7 +14,7 @@ export default function Loading() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full mx-auto mb-4"
+          className="w-12 h-12 border-4 border-blue-200 dark:border-blue-800 border-t-blue-600 dark:border-t-blue-400 rounded-full mx-auto mb-4"
         />
         
         <motion.h2
@@ -54,7 +54,7 @@ export default function Loading() {
                 repeat: Infinity,
                 delay: index * 0.2
               }}
-              className="w-2 h-2 bg-blue-500 rounded-full"
+              className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full"
             />
           ))}
         </motion.div>

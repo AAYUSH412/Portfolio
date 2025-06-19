@@ -4,6 +4,7 @@ import { assets } from "../../assets/assets";
 import Image from "next/image";
 import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Badge } from "./ui/badge";
@@ -12,6 +13,7 @@ import { Download, Mail, ArrowRight } from "lucide-react";
 const Header = () => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadError, setDownloadError] = useState("");
+  const { theme } = useTheme();
 
   const handleDownload = useCallback(async () => {
     if (isDownloading) return;
@@ -85,7 +87,7 @@ const Header = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-11/12 max-w-4xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 relative mt-[200px] md:mt-28 mb-5 font-inter"
+      className="w-11/12 max-w-4xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-3 sm:gap-4 relative mt-20 sm:mt-24 md:mt-28 mb-5 font-inter text-gray-900 dark:text-white px-4"
     >
       <motion.div
         initial={{ scale: 0, rotate: -180 }}
@@ -97,19 +99,19 @@ const Header = () => {
         }}
         className="relative"
       >
-        <Avatar className="w-28 h-28 sm:w-36 sm:h-36 ring-4 ring-primary/20 shadow-2xl">
+        <Avatar className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 ring-4 ring-primary/20 dark:ring-primary/30 shadow-2xl dark:shadow-gray-900/50">
           <AvatarImage 
             src="/profile.jpeg"
             alt="Aayush Vaghela profile"
             className="object-cover w-full h-full"
           />
-          <AvatarFallback className="text-3xl font-bold bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+          <AvatarFallback className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-br from-blue-500 to-purple-600 text-white">
             AV
           </AvatarFallback>
         </Avatar>
         <Badge 
           variant="secondary" 
-          className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-green-500 text-white shadow-lg"
+          className="absolute -bottom-1 sm:-bottom-2 left-1/2 transform -translate-x-1/2 bg-green-500 dark:bg-green-600 text-white shadow-lg text-xs sm:text-sm px-2 py-1"
         >
           Available for work
         </Badge>
@@ -121,10 +123,10 @@ const Header = () => {
         variants={fadeInUpVariants}
         initial="hidden"
         animate="visible"
-        className="flex items-end gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl mb-1 font-poppins font-medium text-gray-700 dark:text-gray-300"
+        className="flex items-end gap-2 sm:gap-3 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-1 font-poppins font-medium text-gray-700 dark:text-gray-300"
       >
         Hi I'm Aayush Vaghela{" "}
-        <span className="text-base sm:text-lg md:text-xl lg:text-2xl animate-wave">
+        <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl animate-wave">
           👋🏻
         </span>
       </motion.h3>
@@ -134,7 +136,7 @@ const Header = () => {
         variants={fadeInUpVariants}
         initial="hidden"
         animate="visible"
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl pt-2 pb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent font-playfair font-bold tracking-tight"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl pt-1 sm:pt-2 pb-2 sm:pb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent font-playfair font-bold tracking-tight"
       >
         Full Stack Developer
       </motion.h1>
@@ -144,7 +146,7 @@ const Header = () => {
         variants={fadeInUpVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-2xl mx-auto text-base sm:text-lg md:text-lg text-gray-600 dark:text-gray-400 font-inter leading-relaxed"
+        className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 font-inter leading-relaxed px-2"
       >
         🚀 Expert Full Stack Developer specializing in{" "}
         <span className="font-semibold text-blue-600 dark:text-blue-400">MERN stack</span> with{" "}
@@ -161,22 +163,22 @@ const Header = () => {
         variants={fadeInUpVariants}
         initial="hidden"
         animate="visible"
-        className="flex flex-col sm:flex-row items-center gap-4 mt-6"
+        className="header-buttons flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-6 sm:mt-8 w-full"
       >
         <Button 
           asChild
           size="lg"
-          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 font-poppins font-medium px-8 py-6 text-base"
+          className="btn-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white hover:text-white shadow-lg hover:shadow-xl transition-all duration-300 font-poppins font-medium px-8 sm:px-10 text-sm sm:text-base w-full sm:w-auto"
         >
           <motion.a
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2"
+            className="flex items-center justify-center gap-2 w-full h-full"
           >
-            <Mail className="w-5 h-5" />
+            <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
             Contact Me
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </motion.a>
         </Button>
 
@@ -185,22 +187,24 @@ const Header = () => {
           disabled={isDownloading}
           variant="outline"
           size="lg"
-          className="border-2 border-gray-300 hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-poppins font-medium px-8 py-6 text-base backdrop-blur-sm"
+          className="btn-lg border-2 border-gray-300 hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-poppins font-medium px-8 sm:px-10 text-sm sm:text-base backdrop-blur-sm w-full sm:w-auto"
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2"
+            className="flex items-center justify-center gap-2 w-full h-full"
           >
             {isDownloading ? (
               <>
-                <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                Downloading...
+                <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                <span className="hidden sm:inline">Downloading...</span>
+                <span className="sm:hidden">Loading...</span>
               </>
             ) : (
               <>
-                <Download className="w-5 h-5" />
-                Download Resume
+                <Download className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="hidden sm:inline">Download Resume</span>
+                <span className="sm:hidden">Resume</span>
               </>
             )}
           </motion.div>

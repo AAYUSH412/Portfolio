@@ -73,36 +73,36 @@ const Project = () => {
 
   if (loading) {
     return (
-      <div id="projects" className="w-full px-6 md:px-[12%] py-10 scroll-mt-20">
-        <div className="text-center mb-12">
-          <Badge variant="outline" className="mb-4 px-4 py-2">
+      <div id="projects" className="w-full px-4 sm:px-6 md:px-8 lg:px-[12%] py-8 sm:py-10 scroll-mt-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
+        <div className="text-center mb-8 sm:mb-12">
+          <Badge variant="outline" className="mb-3 sm:mb-4 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm">
             My Projects
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Portfolio</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">Portfolio</h2>
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Loading my amazing projects...
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {[...Array(6)].map((_, index) => (
             <Card key={index} className="overflow-hidden">
               <Skeleton className="aspect-video w-full" />
-              <CardContent className="p-6">
-                <div className="space-y-3">
+              <CardContent className="p-3 sm:p-4 md:p-6">
+                <div className="space-y-2 sm:space-y-3">
                   <div className="flex items-center justify-between">
-                    <Skeleton className="h-6 w-3/4" />
-                    <Skeleton className="h-4 w-4" />
+                    <Skeleton className="h-4 sm:h-6 w-3/4" />
+                    <Skeleton className="h-3 w-3 sm:h-4 sm:w-4" />
                   </div>
-                  <Skeleton className="h-4 w-full" />
-                  <Skeleton className="h-4 w-2/3" />
+                  <Skeleton className="h-3 sm:h-4 w-full" />
+                  <Skeleton className="h-3 sm:h-4 w-2/3" />
                   <Separator />
-                  <div className="flex items-center justify-between pt-2">
-                    <div className="flex gap-2">
-                      <Skeleton className="h-8 w-16" />
-                      <Skeleton className="h-8 w-16" />
+                  <div className="flex items-center justify-between pt-1 sm:pt-2">
+                    <div className="flex gap-1 sm:gap-2">
+                      <Skeleton className="h-6 sm:h-8 w-12 sm:w-16" />
+                      <Skeleton className="h-6 sm:h-8 w-12 sm:w-16" />
                     </div>
-                    <Skeleton className="h-4 w-4" />
+                    <Skeleton className="h-3 w-3 sm:h-4 sm:w-4" />
                   </div>
                 </div>
               </CardContent>
@@ -116,24 +116,24 @@ const Project = () => {
   return (
     <motion.div
       id="projects"
-      className="w-full px-6 md:px-[12%] py-10 scroll-mt-20"
+      className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-[12%] py-6 sm:py-8 md:py-10 scroll-mt-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-950 dark:to-gray-900"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={containerVariants}
     >
-      <motion.div variants={projectVariants} className="text-center mb-12">
-        <Badge variant="outline" className="mb-4 px-4 py-2">
+      <motion.div variants={projectVariants} className="text-center mb-8 sm:mb-12">
+        <Badge variant="outline" className="mb-3 sm:mb-4 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm">
           My Projects
         </Badge>
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Portfolio</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white">Portfolio</h2>
+        <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
           Here are some of the projects I have worked on, showcasing my expertise in full-stack development.
         </p>
       </motion.div>
 
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         variants={containerVariants}
       >
         {workData.map((project, index) => (
@@ -144,62 +144,63 @@ const Project = () => {
           >
             <HoverCard>
               <HoverCardTrigger asChild>
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full">
+                <Card className="overflow-hidden hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 cursor-pointer h-full bg-white dark:bg-gray-800/50 border-gray-200 dark:border-gray-700">
                   <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={project.bgImage}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                      <Badge variant="secondary" className="bg-white/90 text-black">
+                    <div className="absolute top-2 sm:top-4 right-2 sm:right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                      <Badge variant="secondary" className="bg-white/90 text-black text-xs">
                         Project {index + 1}
                       </Badge>
                     </div>
                   </div>
                   
-                  <CardContent className="p-6">
-                    <div className="space-y-3">
+                  <CardContent className="p-3 sm:p-4 md:p-6">
+                    <div className="space-y-2 sm:space-y-3">
                       <div className="flex items-center justify-between">
-                        <h3 className="font-semibold text-lg line-clamp-1 group-hover:text-primary transition-colors">
+                        <h3 className="font-semibold text-sm sm:text-base lg:text-lg line-clamp-1 group-hover:text-primary transition-colors text-gray-900 dark:text-gray-100">
                           {project.title}
                         </h3>
-                        <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground" />
+                        <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground flex-shrink-0 ml-2" />
                       </div>
                       
-                      <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
+                      <p className="text-muted-foreground text-xs sm:text-sm line-clamp-2 leading-relaxed">
                         {project.description}
                       </p>
                       
                       <Separator />
                       
-                      <div className="flex items-center justify-between pt-2">
-                        <div className="flex gap-2">
-                          <Button size="sm" variant="outline" asChild>
+                      <div className="flex items-center justify-between pt-1 sm:pt-2">
+                        <div className="flex gap-1 sm:gap-2">
+                          <Button size="sm" variant="outline" asChild className="text-xs px-1.5 sm:px-2 md:px-3 py-1 sm:py-2 h-6 sm:h-8">
                             <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
-                              <Eye className="h-3 w-3" />
-                              View
+                              <Eye className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
+                              <span className="hidden sm:inline">View</span>
                             </a>
                           </Button>
                           {project.github && (
-                            <Button size="sm" variant="ghost" asChild>
+                            <Button size="sm" variant="ghost" asChild className="text-xs px-1.5 sm:px-2 md:px-3 py-1 sm:py-2 h-6 sm:h-8">
                               <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
-                                <Github className="h-3 w-3" />
-                                Code
+                                <Github className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
+                                <span className="hidden sm:inline">Code</span>
                               </a>
                             </Button>
                           )}
                         </div>
-                        <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform text-muted-foreground" />
+                        <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transform group-hover:translate-x-1 transition-transform text-muted-foreground flex-shrink-0" />
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </HoverCardTrigger>
               
-              <HoverCardContent className="w-80">
+              <HoverCardContent className="w-72 sm:w-80 hidden sm:block">
                 <div className="space-y-3">
                   <h4 className="font-semibold">{project.title}</h4>
                   <p className="text-sm text-muted-foreground">

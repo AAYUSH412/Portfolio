@@ -96,66 +96,75 @@ export const assets = {
     cloud
 };
 
-export const workData = [
-    {
+export const workData = [    {
         title: 'UptimeCheck',
         description: 'A robust monitoring solution that continuously tracks and reports the uptime status of websites and APIs. It provides real-time monitoring, detailed analytics, and instant alerts for downtime detection.',
         bgImage: 'https://ik.imagekit.io/r9naagwrj/Github/Screenshot%202025-04-01%20at%204.55.55%E2%80%AFPM.png?updatedAt=1743506875112',
-        link: 'https://github.com/AAYUSH412/uptimecheck'
+        link: 'https://github.com/AAYUSH412/uptimecheck',
+        github: 'https://github.com/AAYUSH412/uptimecheck'
     },
     {
         title: 'Instagram Unfollower Check',
         description: 'A free web tool to analyze your Instagram followers and find who doesn\'t follow you back. Built with React and Tailwind CSS.',
         bgImage: 'https://ik.imagekit.io/r9naagwrj/Github/Screenshot%202025-03-21%20at%2012.57.17%E2%80%AFPM.png',
-        link: 'https://github.com/AAYUSH412/insta-unfollower-check'
+        link: 'https://insta-unfollower-check.vercel.app',
+        github: 'https://github.com/AAYUSH412/insta-unfollower-check'
     },
     {
         title: 'SnapLoop',
         description: 'A modern short-format video sharing platform that allows users to discover and share creative content. Built with a React frontend and Node.js backend.',
         bgImage: 'https://ik.imagekit.io/xh3awoalr/Portfolio/snap-loop.png',
-        link: 'https://github.com/AAYUSH412/snaploop'
+        link: 'https://snaploop.vercel.app',
+        github: 'https://github.com/AAYUSH412/snaploop'
     },
     {
         title: 'EventFlow',
         description: '🚀 A modern, animated event management platform for seamless organization, registration, and certification 🎓',
         bgImage: 'https://ik.imagekit.io/xh3awoalr/Portfolio/hero-section.png',
-        link: 'https://github.com/AAYUSH412/Event-flow'
+        link: 'https://github.com/AAYUSH412/Event-flow',
+        github: 'https://github.com/AAYUSH412/Event-flow'
     },
     {
         title: 'MERN Stack House Rental Website',
         description: 'House rental site with authentication, listings, and CRUD features.',
         bgImage: 'https://ik.imagekit.io/xh3awoalr/Portfolio/project1.png',
-        link: 'https://real-estate-website-sepia-two.vercel.app/' // Add the live link here
+        link: 'https://buildestate.vercel.app',
+        github: 'https://github.com/AAYUSH412/Real-Estate-Website'
     },
     {
         title: 'E-commerce Platform',
         description: 'E-commerce site with product browsing and admin dashboard.',
         bgImage: 'https://ik.imagekit.io/xh3awoalr/Portfolio/project2.png',
-        link: 'https://e-commerce-website-frontend-ashy.vercel.app/' // Add the live link here
+        link: 'https://e-commerce-website-frontend-ashy.vercel.app',
+        github: 'https://github.com/AAYUSH412/E-commerce-Website'
     },
     {
         title: 'Mamo Technolabs Website Redesign',
         description: 'Redesigned Mamo Technolabs site for better UX and performance.',
         bgImage: 'https://ik.imagekit.io/xh3awoalr/Portfolio/project3.png',
-        link: 'https://mamo-technolabs-website-redesign.vercel.app/' // Add the live link here
+        link: 'https://mamo-technolabs-website-redesign.vercel.app/',
+        github: 'https://github.com/AAYUSH412/Mamo-Technolabs-Website-Redesign'
     },
     {
         title: 'Bite Buddy Full Stack Food Delivery',
         description: 'Food delivery platform with user authentication, restaurant listings, and online ordering.',
         bgImage: 'https://ik.imagekit.io/xh3awoalr/Portfolio/project4.png',
-        link: 'https://full-stack-online-food-ordering-system-frontend.vercel.app/' // Add the live link here
+        link: 'https://bite-buddy-food.vercel.app',
+        github: 'https://github.com/AAYUSH412/Full-Stack-Online-Food-Ordering-System'
     },
     {
         title: 'Event Management System',
         description: 'Event management platform with user authentication, event listings, and ticket booking.',
         bgImage: 'https://ik.imagekit.io/xh3awoalr/Portfolio/project5.png',
-        link: 'https://eventpro-frontend.vercel.app/' // Add the live link here
+        link: 'https://eventpro-frontend.vercel.app/',
+        github: 'https://github.com/AAYUSH412/EventPro'
     },
     {
         title: 'E-learning Platform',
         description: 'Interactive learning platform with HD video streaming, assessments, and secure payments. Optimized with Next.js for 40% faster performance.',
         bgImage: 'https://ik.imagekit.io/xh3awoalr/Portfolio/project6.png',
-        link: 'https://edulearn-one.vercel.app/'
+        link: 'https://edulearn-one.vercel.app/',
+        github: 'https://github.com/AAYUSH412/EduLearn'
     }
 ];
 
